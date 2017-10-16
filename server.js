@@ -1,10 +1,14 @@
-// grab our dependencies
-const express = require('express'),
-app = express(),
-port = process.env.PORT || 8080,
-expressLayouts = require('express-ejs-layouts');
+// load environment variables
+require('dotenv').config();
 
-//configure our application
+// grab our dependencies
+const express  = require('express'),
+app            = express(),
+port           = process.env.PORT || 8080,
+expressLayouts = require('express-ejs-layouts'),
+mongoose       = require('mongoose');
+
+//configure our application ==========================
 // tell express where to look for static assests
 app.use(express.static(__dirname + '/public'));
 
@@ -12,10 +16,13 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
-// set the routes
+// connect to our database
+mongoose.connect(process.env.DB_URI, { useMongoClient: true });
+
+// set the routes ==========================
 app.use(require('./app/routes'));
 
-//start our server
+//start our server ==========================
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
 });
