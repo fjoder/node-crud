@@ -47,10 +47,10 @@ module.exports = {
   function seedEvents(req, res) {
     // create some events
     const events = [
-      { name: 'Basketball', description: 'Throwing into a basket.' },
-      { name: 'Swimming', description: 'Michael Phelps is the fast fish.' },
+      { name: 'Basketball',    description: 'Throwing into a basket.' },
+      { name: 'Swimming',      description: 'Michael Phelps is the fast fish.' },
       { name: 'Weightlifting', description: 'Less talky, more lifty.' },
-      { name: 'Ping Pong', description: 'Small white balls on the fly.' }      
+      { name: 'Ping Pong',     description: 'Small white balls on the fly.' }      
     ];
 
     // use the Event model to insert/save
